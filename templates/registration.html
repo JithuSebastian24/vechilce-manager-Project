@@ -1,0 +1,97 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <style>
+         header{
+        width: 1350px; 
+        height: 70px;
+        background-color:rgb(1, 90, 255) ;
+        
+
+    }
+    header h1{
+        
+        color: white;
+        padding-top: 5px;
+    }
+    body, html {
+        height: 100%;
+            }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vehicle Management System</h1>
+    </header>
+    <section class="h-100 h-custom" style="background-color: #458ed3;">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-lg-8 col-xl-6">
+            <div class="card rounded-3">
+              <img src="{% static 'img/photo1.jpg' %}"
+                class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+                alt="Sample photo">
+              <div class="card-body p-4 p-md-5">
+                <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Vehicle Info</h3>
+    
+                <form class="px-md-2" method="post" action="">
+                  {% csrf_token %} 
+    
+                  <div class="form-outline mb-4">
+                    <input type="text" id="VNum" class="form-control" placeholder="Enter your Vehicle Number" pattern="[a-zA-Z0-9\s]+" name="Vnum" required="" />
+                    <label class="form-label" for="VNum">Vehicle Number</label>
+                  </div>
+    
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+    
+                      <div class="form-outline datepicker">
+                        <input type="text" class="form-control" id="Vmodel"  placeholder="Enter your Vehicle Model " name="VModel" required="" />
+                        <label for="Vmodel" class="form-label">Vehicle Model</label>
+                      </div>
+    
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <label for="VType" class="form-label">Vehicle Type</label>
+    
+                      <select name="VType" id="VType">
+                        <option value="four wheelers">4 wheeler</option>
+                        <option value="three wheelers">3 wheeler</option>
+                        <option value="two wheelers">2 wheeler</option>
+                      </select>
+    
+                    </div>
+                  </div>
+    
+    
+                  <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                    <div class="col-md-6">
+    
+                      <div class="form-outline">
+                          <label for="VDes" class="form-label">Vehicle Description</label>
+                          <textarea class="form-control" placeholder="Enter number of Vehicle Description" name="VDes" required=""></textarea>
+                      </div>
+    
+                    </div>
+                  </div>
+    
+                  <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+    
+                </form>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>

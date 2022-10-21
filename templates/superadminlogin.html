@@ -1,0 +1,129 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        header{
+            width: 1350px; 
+            height: 70px;
+            background-color:rgb(1, 90, 255) ;
+            
+
+        }
+        header h1{
+            
+            color: white;
+            padding-top: 5px;
+        }
+        body, html {
+            height: 100%;
+                }
+            
+        #d1{
+          /* The image used */
+          background-image: url(../static/img/log.jpg);
+        
+          /* Full height */
+          height: 100%;
+        
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        #d2{
+            width: 350px;
+            height: 250px;
+            color: white;
+            position: absolute;
+            top: 200px;
+            left: 500px;
+            background-color: rgba(95, 184, 243, 0.486);
+            border-radius: 7%;
+        }
+
+        #a{
+            color: red;
+        }
+        #t1{
+            position: absolute;
+            top: 100px;
+            left: 40px;
+        }
+        #tb{
+            text-align: center;
+        }
+        #btn{
+            width: 50px;
+            height: 20px;
+            border-width: 0.5px solid white;
+            border-radius: 10%;
+            color: white;
+            background-color: rgb(79, 183, 224);
+        }
+        #d3{
+            width: 60px;
+            height: 60px;
+            background-image: url(../static/img/logicon.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 25px;
+            left: 150px;
+        }
+     
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vehicle Management System</h1>
+    </header>
+    <div id="d1">
+    <div id="d2">
+        <h2>Super Admin</h2>
+        <div id="d3"></div>
+        <form method="POST" action="{% url 'App_VMS:superadminlogin' %}">
+            {% csrf_token %} 
+            
+            <table id="t1">
+             
+                <tr>
+                    <td>
+            <label for="uname">Username</label>
+            </td>
+            
+    
+           
+            <td>
+            <input type="text" pattern="[a-zA-Z]*"  placeholder="Enter your username" name="username" id="uname"><br>
+           </td>
+           </tr>
+    
+           <tr>
+            <td>
+         <label for="">Password</label>
+             </td>
+    
+             <td>
+         <input type="password" placeholder="Enter your Password" name="password" id="pas" >
+                 </td>
+         </tr>
+    
+         <tr>
+             <td colspan="2" id="tb">
+                <button id="btn">login</button>
+                </td>
+             </tr>
+
+      
+         </table>
+         </form>
+        </div>
+    </div>
+    
+</body>
+</html>

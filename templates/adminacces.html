@@ -1,0 +1,59 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <style>
+        header{
+            width: 1350px; 
+            height: 70px;
+            background-color:rgb(1, 90, 255) ;
+            
+
+        }
+        header h1{
+            
+            color: white;
+            padding-top: 5px;
+        }
+        body, html {
+            height: 100%;
+                }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vehicle Management System</h1>
+    </header>
+    <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Vehicle Number</th>
+            <th scope="col">Vehicle Type</th>
+            <th scope="col">Vehicle Model</th>
+            <th scope="col">Vehicle Description</th>
+          </tr>
+        </thead>
+        {% for i in obj %}
+        <tbody>
+          <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.VehicleNum}}</td>
+            <td>{{i.Vehicletype}}</td>
+            <td>{{i.VehicleModel}}</td>
+            <td>{{i.VehicleDes}}</td>
+            <td><a href="{% url 'App_VMS:edit' i.id%}" class="btn btn-primary">edit</a></td>
+            <td><a href="{% url 'App_VMS:DetailUserview' i.id %}" class="btn btn-success">view</a></td>
+
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    
+</body>
+</html>
